@@ -32,6 +32,8 @@ There are several ways to create and manage environments for a Flask application
 
    # Activate the virtual environment
    source myenv/bin/activate
+   
+   0r myenv\Scripts\activate
 
    # Install Flask and other dependencies
    pip install flask

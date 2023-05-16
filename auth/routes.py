@@ -1,5 +1,5 @@
-from flask import request, jsonify, Blueprint
-from flask_jwt_extended import create_access_token
+from flask import request, jsonify, Blueprint, make_response
+from flask_jwt_extended import create_access_token,  set_access_cookies, unset_jwt_cookies, jwt_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from extensions import db
 from models.users import User
@@ -34,7 +34,13 @@ def login():
 
     if user is not None and check_password_hash(user.password, password):
         access_token = create_access_token(identity=username)
+        # Create a response with the access token
         response = jsonify(message='success', access_token=access_token)
-        return response, 200
+        response.status_code = 200
+
+        # Set the access token as a cookie in the response
+        set_access_cookies(response, access_token)
+
+        return response
     else:
         return jsonify(message='login failed'), 401
