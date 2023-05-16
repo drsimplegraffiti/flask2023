@@ -27,6 +27,11 @@ def create_blog():
     decoded_user = get_jwt_identity()
     print(decoded_user)  # {'username': 'test', 'user_id': 1}
 
+    # check if blog title already exists
+    blog = Blog.query.filter_by(title=title).one_or_none()
+    if blog is not None:
+        return jsonify(message='Title already exists.'), 400
+
     # Validate inputs
     if not title or not body:
         return jsonify(message='Title and body are required.'), 400
