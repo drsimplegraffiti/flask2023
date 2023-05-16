@@ -4,7 +4,7 @@ import os
 app = create_app()
 
 if __name__ == '__main__':
-    print(f"Running app..🚀🚀")
+    print(f"Running app. port 5001.🚀🚀")
     # Set the environment variable to enable file monitoring
     os.environ['FLASK_RUN_EXTRA_FILES'] = 'factory/'
     app.run(port=5001, debug=True)
