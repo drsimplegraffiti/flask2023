@@ -33,7 +33,7 @@ def login():
     user = User.query.filter_by(username=username).one_or_none()
 
     if user is not None and check_password_hash(user.password, password):
-        access_token = create_access_token(identity=username)
+        access_token = create_access_token(identity={'username': username, 'user_id': user.id})
         # Create a response with the access token
         response = jsonify(message='success', access_token=access_token)
         response.status_code = 200

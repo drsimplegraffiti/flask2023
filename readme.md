@@ -20,6 +20,16 @@ CREATE TABLE users (
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
 )
+
+CREATE TABLE blogs(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    body TEXT NOT NULL,
+    user_id INTEGER REFERENCES users(id)
+);
+```
+
+```python
 ```
 
 There are several ways to create and manage environments for a Flask application in Python. Here are three popular methods along with examples:
