@@ -21,3 +21,55 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 )
 ```
+
+There are several ways to create and manage environments for a Flask application in Python. Here are three popular methods along with examples:
+
+1. **Virtualenv**: Virtualenv is a tool for creating isolated Python environments. It allows you to have separate environments for different projects. Here's an example of creating a virtual environment for a Flask application using Virtualenv:
+
+   ```plaintext
+   # Create a new virtual environment
+   python3 -m venv myenv
+
+   # Activate the virtual environment
+   source myenv/bin/activate
+
+   # Install Flask and other dependencies
+   pip install flask
+
+   # Run the Flask application
+   flask run
+   ```
+
+2. **Pipenv**: Pipenv is a higher-level tool that combines virtual environment management with package dependency management. It simplifies the process of setting up and managing environments for your Flask application. Here's an example of using Pipenv for a Flask application:
+
+   ```plaintext
+   # Install Pipenv
+   pip install pipenv
+
+   # Create a new Pipenv environment and install Flask
+   pipenv install flask
+
+   # Activate the Pipenv shell
+   pipenv shell
+
+   # Run the Flask application
+   flask run
+   ```
+
+3. **Conda**: Conda is a package and environment manager that can be used for Python development. It allows you to create separate environments with different Python versions and package configurations. Here's an example of using Conda for a Flask application:
+
+   ```plaintext
+   # Create a new Conda environment
+   conda create --name myenv python=3.9
+
+   # Activate the Conda environment
+   conda activate myenv
+
+   # Install Flask and other dependencies
+   conda install flask
+
+   # Run the Flask application
+   flask run
+   ```
+
+These methods provide different approaches to creating and managing environments for your Flask application. Choose the one that best fits your needs and preferences.
