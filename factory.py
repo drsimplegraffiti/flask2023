@@ -26,7 +26,17 @@ def create_app():
     db.init_app(app)
     jwt.init_app(app)
 
+
     app.register_blueprint(auth, url_prefix='/auth')
     app.register_blueprint(api, url_prefix='/api')
 
+    # 404 error handler
+    @app.errorhandler(404)
+    def not_found(e):
+        return {"message": "resource not found 😢", "error": 404}, 404
+
+    # 500 error handler
+    @app.errorhandler(500)
+    def internal_server_error(e):
+        return {"message": "internal server error 🔥🔥🔥", "error": 500}, 500
     return app
