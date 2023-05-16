@@ -21,6 +21,10 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 )
 
+ALTER TABLE users ADD COLUMN profile_image VARCHAR(255);
+# alter table to use BLOB
+ALTER TABLE users ALTER COLUMN profile_image TYPE bytea USING profile_image::bytea;
+
 CREATE TABLE blogs(
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
